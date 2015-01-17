@@ -1,9 +1,11 @@
 package com.dongbat.example;
 
 import com.artemis.Entity;
+import com.artemis.World;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.dongbat.example.component.Physics;
 import com.dongbat.example.component.Script;
@@ -28,12 +30,17 @@ public class AiDemo extends Game {
 		entity2.edit().add(new Physics(new Vector2(), new Vector2()))
 				.add(new State(new Vector2(300, 200)));
 
-		Entity entity3 = EcsUtil.getWorld().createEntity();
-		entity3.edit().add(new Physics(new Vector2(), new Vector2()))
-				.add(state);
-
 		Entity entity4 = EcsUtil.getWorld().createEntity();
 		entity4.edit().add(new Script()).add(physics).add(state);
+	
+
+		for (int i = 0; i < 10; i++) {
+			Entity entity = EcsUtil.getWorld().createEntity();
+			entity.edit().add(
+					new State(new Vector2(MathUtils.random(-200, 200),
+							MathUtils.random(-200, 200))));
+		}
+		
 		//
 		// Entity entity5 = EcsUtil.getWorld().createEntity();
 		// entity5.edit().add(new Script()).add(physics).add(state);

@@ -23,10 +23,6 @@ public class ScriptSystem extends EntityProcessingSystem {
 
 	@Override
 	protected void process(Entity e) {
-		if (scriptMapper == null) {
-			System.out.println("AAAAAA");
-		}
-
 		accumulate += e.getWorld().delta;
 		while (accumulate > STEP) {
 			accumulate -= STEP;

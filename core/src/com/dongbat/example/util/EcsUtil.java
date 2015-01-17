@@ -9,6 +9,7 @@ import com.dongbat.example.system.MovementSystem;
 import com.dongbat.example.system.PhysicsSystem;
 import com.dongbat.example.system.ScriptSystem;
 import com.dongbat.example.system.ShapeRenderSystem;
+import com.dongbat.example.system.StateSystem;
 
 public class EcsUtil {
 
@@ -31,6 +32,7 @@ public class EcsUtil {
 		setSystem(world, new MovementSystem(), false);
 		setSystem(world, new PhysicsSystem(), false);
 		setSystem(world, new ScriptSystem(), false);
+		setSystem(world, new StateSystem(), false);
 		setSystem(world, new ShapeRenderSystem(), true);
 
 		world.initialize();
